@@ -5,10 +5,12 @@
     .controller ('updateDonutsCtrl', updateDonutsCtrl)
 
     allDonutsCtrl.$inject = ['donutFactory'] // 30 
+    createDonutsCtrl.$inject = ['donutFactory', '$state']  //  36
+    updateDonutsCtrl.$inject = ['donutFactory', '$state', '$stateParams']  //  49
+
 
     function allDonutsCtrl(donutFactory){
       var donutCtrl = this;
-
       donutCtrl.title = "The Donut Shop"
 
       // Factory passed as argument calls factory function allDonuts() which is a HTTP GET request
@@ -17,9 +19,8 @@
           console.log("we are inside the controller all donuts caught reponse from server served by factory.")
           donutCtrl.donuts = response.data
         })
-    }
+      }
 
-    createDonutsCtrl.$inject = ['donutFactory', '$state']  //  36
 
     function createDonutsCtrl(donutFactory, $state){
       var donutCtrl = this;
@@ -37,7 +38,6 @@
       }
     }
 
-    updateDonutsCtrl.$inject = ['donutFactory', '$state', '$stateParams']  //  49
 
     function updateDonutsCtrl(donutFactory, $state, $stateParams){
       var donutCtrl = this;
@@ -53,24 +53,18 @@
         
         // this controller method .updateDonut 
         donutCtrl.updateDonut = function(){
-           donutFactory.update(donutCtrl.currentDonut)
+            donutFactory.update(donutCtrl.currentDonut)
             .then(function(response){
             console.log('Updated donut', response) // another call to factory
+            $state.go('home')
             })
         }
       
-        donutCtrl.updateDonut = function() {
-          donutFactory.update(donutCtrl.currentDonut)
-            .then(function(response) {
-              console.log("Updated donut", response)
-              $state.go('home')
-            })
-        }
         // 9089080   destroy add in 
         donutCtrl.destroy = function(id){ // call the destroy function from factory, access http DELETE reqeuest
-          donutFactory.destory(id)
+          donutFactory.destroy(id)
             .then(function(response){
-              console.log("Donute Destroyed")
+              console.log("Donut Destroyed")
               $state.go('home')
             })
         }

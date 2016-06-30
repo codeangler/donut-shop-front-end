@@ -16,17 +16,17 @@
       }
 
       factoryObject.create = function(donuts){
-        return $http.post('/api/v0/donuts' , donuts) // check again server.js  trying to head 
+        return $http.post('/api/v0/donuts' , donuts) 
       }
 
       factoryObject.update = function(donut){
-        return $http.put('/api/v0/donuts/' + donut._id , donuts) // check again server.js  trying to head 
+        return $http.put('/api/v0/donuts/' + donut._id , donut) 
       }
 
       factoryObject.destroy = function(id){
         return $http.delete('/api/v0/donuts/' + id)
       }
-      
+
       return factoryObject // 27
     }
 }())

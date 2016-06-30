@@ -23,21 +23,21 @@
     </form>
   </div>
 
-   <div class="row" ng-if="donutCtrl.update">
-    <form class="col s12" ng-submit='donutCtrl.updateDonutsCtrl()'>
+   <div class="row" ng-if="donutCtrl.update"> <!-- This line loads on if app.js route directs to state ./update-donut.  then assigns updateDonutsCtrl as donutCtrl -->
+    <form class="col s12" ng-submit='donutCtrl.createDonut()'> <!-- This accepts the form submit button to call the createDonut() method attached to the updateDonutsCtrl within the controller.js -->
       <div class="row">
         <div class="input-field col s6">
-          <input ng-model="donutCtrl.newDonut.name" placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <input ng-model="donutCtrl.currentDonut.name" placeholder="Placeholder" id="first_name" type="text" class="validate">
           <label for="first_name"> Name</label>
         </div>
         <div class="input-field col s6">
-          <input ng-model="donutCtrl.newDonut.picUrl" id="picUrl" type="text" class="validate">
+          <input ng-model="donutCtrl.currentDonut.picUrl" id="picUrl" type="text" class="validate">
           <label for="picUrl">Picture Url</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input ng-model="donutCtrl.newDonut.price" id="price" type="number" class="validate">
+          <input ng-model="donutCtrl.currentDonut.price" id="price" type="number" class="validate">
           <label for="price">price</label>
         </div>
       </div>
