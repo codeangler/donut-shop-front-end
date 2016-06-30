@@ -1,0 +1,49 @@
+ 
+{{donutCtrl.title}}
+ <div class="row" ng-if="donutCtrl.create">
+    <form class="col s12" ng-submit='donutCtrl.createDonut()'>
+      <div class="row">
+        <div class="input-field col s6">
+          <input ng-model="donutCtrl.newDonut.name" placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name"> Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input ng-model="donutCtrl.newDonut.picUrl" id="picUrl" type="text" class="validate">
+          <label for="picUrl">Picture Url</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input ng-model="donutCtrl.newDonut.price" id="price" type="number" class="validate">
+          <label for="price">price</label>
+        </div>
+      </div>
+        <button type='submit' class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></button>
+
+    </form>
+  </div>
+
+   <div class="row" ng-if="donutCtrl.update">
+    <form class="col s12" ng-submit='donutCtrl.createDonut()'>
+      <div class="row">
+        <div class="input-field col s6">
+          <input ng-model="donutCtrl.newDonut.name" placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name"> Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input ng-model="donutCtrl.newDonut.picUrl" id="picUrl" type="text" class="validate">
+          <label for="picUrl">Picture Url</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input ng-model="donutCtrl.newDonut.price" id="price" type="number" class="validate">
+          <label for="price">price</label>
+        </div>
+      </div>
+        <button type='submit' class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></button>
+
+        <a ng-click="donutCtrl.destroy(donutCtrl.currentDonut._id)"> Destroy Donut </a>
+
+    </form>
+  </div>

@@ -5,6 +5,7 @@ var donutSchema = mongoose.Schema({
     holed: Boolean,
     flavor: String,
     filling: String,
+    picUrl: String,
     toppings: [String],
     price: Number,
     expiration: Date,

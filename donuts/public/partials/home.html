@@ -1,5 +1,43 @@
 <h1>{{donutsCtrl.title}}</h1>  <!-- from app.js router -->
 
+<!-- <div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1" ng-repeat="donut in donutsCtrl.donuts">
+            <div class="card-image">
+              <img ng-src="{{donut.picUrl}}">
+              <span class="card-title">{{donut.name}}</span>
+              
+            </div>
+            <div class='card-content'>
+              
+              {{donut.price}}
+            </div>
+            <div class='card-action'>
+            <a href="#/update-donut/{{donut._id}}">Update Donute</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div> -->
+
+
+<div class="row" ng-repeat="donut in donutsCtrl.donuts"> <!--  when agent goes to '/' access to  route via config w/n app.js setting allDonutsCtrl route (from controller) as donutCtrl --> 
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-image">
+        <img ng-src="{{donut.picUrl}}" width="300" height="200"><!--  The response from allDonutsCtrl store .picUrl is passed with each repeat -->
+        <span class="card-title">{{donut.name}}</span> <!-- Each name is pulled from the repsonse -->
+      </div>
+      <div class="card-content white-text">
+        <div>{{donut.price | currency}}</div>
+     </div>
+      <div class="card-action">
+        <a href="#/update-donut/{{donut._id}}">Update Donut</a>
+      </div>
+    </div>
+  </div>
+</div>
 <p>Godard next level franzen truffaut, photo booth viral pabst drinking vinegar mixtape organic taxidermy. Bespoke echo park church-key ennui before they sold out. Small batch umami mixtape gentrify shoreditch cliche affogato franzen. Mlkshk asymmetrical man braid, fap stumptown waistcoat hammock intelligentsia slow-carb try-hard chartreuse normcore yr twee. Waistcoat literally knausgaard franzen cardigan. Twee hashtag franzen pug you probably haven't heard of them. Put a bird on it roof party kitsch four dollar toast, dreamcatcher offal brooklyn stumptown gentrify distillery schlitz vice humblebrag.</p>
 
 <p>Forage blog photo booth, poutine shoreditch shabby chic squid jean shorts swag fap meh truffaut bushwick. Gochujang green juice deep v four loko, helvetica drinking vinegar butcher chicharrones echo park DIY distillery. Brunch meditation 8-bit selfies waistcoat. Tacos locavore blog, ramps echo park umami hoodie forage. Man braid bushwick try-hard, tumblr YOLO yuccie trust fund normcore knausgaard tattooed heirloom cornhole squid occupy. Selvage portland cred occupy trust fund gentrify. Tofu quinoa mumblecore banh mi occupy.</p>
