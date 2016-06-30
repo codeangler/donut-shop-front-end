@@ -48,7 +48,7 @@
 
       // need another factory call to get the params   49
       donutFactory.single($stateParams.id)
-        .then(function(resopnse){
+        .then(function(response){
           donutCtrl.currentDonut = response.data
         })
 
