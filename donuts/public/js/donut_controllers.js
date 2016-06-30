@@ -4,14 +4,14 @@
     .controller ('createDonutsCtrl', createDonutsCtrl)//35
     .controller ('updateDonutsCtrl', updateDonutsCtrl)
 
-    // 30 
-    allDonutsCtrl.$inject = ['donutFactory']
+    allDonutsCtrl.$inject = ['donutFactory'] // 30 
+
     function allDonutsCtrl(donutFactory){
       var donutCtrl = this;
 
       donutCtrl.title = "The Donut Shop"
 
-// Factory passed as argument calls factory function allDonuts() which is a HTTP GET request
+      // Factory passed as argument calls factory function allDonuts() which is a HTTP GET request
       donutFactory.allDonuts()  // 30.2
         .then(function(response){
           console.log("we are inside the controller all donuts caught reponse from server served by factory.")
@@ -23,11 +23,10 @@
 
     function createDonutsCtrl(donutFactory, $state){
       var donutCtrl = this;
-      
       donutCtrl.title = "create a dream donut"
       donutCtrl.create = true; // 55
       
-      donutCtrl.createDonut = function(donut){ // 42
+      donutCtrl.createDonut = function(){ // 42  // removed argument as it wasn't necessary upon testing. and ocmparing to Tony's
         console.log('working')
         donutFactory.create(donutCtrl.newDonut)
           .then(function(response){
@@ -51,16 +50,16 @@
         .then(function(response){
           donutCtrl.currentDonut = response.data
         })
+        // this controller method .updateDonut 
+        donutCtrl.updateDonut = function(){
+           donutFactory.update(donutCtrl.currentDonut)
+            .then(function(response){
+            console.log('Updated donut', response) // another call to factory
+            })
+          }
 
-        // 9089080   destroy add in  
-
-
-      donutCtrl.updateDonut = function(){
-            donutFactory.update(donutCtrl.currentDonut)
-              .then(function(response){
-                console.log('Updated donut', response) // another call to factory
-      })
-    }
-  }
+      }
+    // 9089080   destroy add in 
+  
 
 }())
