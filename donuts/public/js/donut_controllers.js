@@ -50,16 +50,29 @@
         .then(function(response){
           donutCtrl.currentDonut = response.data
         })
+        
         // this controller method .updateDonut 
         donutCtrl.updateDonut = function(){
            donutFactory.update(donutCtrl.currentDonut)
             .then(function(response){
             console.log('Updated donut', response) // another call to factory
             })
-          }
-
-      }
-    // 9089080   destroy add in 
-  
-
+        }
+      
+        donutCtrl.updateDonut = function() {
+          donutFactory.update(donutCtrl.currentDonut)
+            .then(function(response) {
+              console.log("Updated donut", response)
+              $state.go('home')
+            })
+        }
+        // 9089080   destroy add in 
+        donutCtrl.destroy = function(id){ // call the destroy function from factory, access http DELETE reqeuest
+          donutFactory.destory(id)
+            .then(function(response){
+              console.log("Donute Destroyed")
+              $state.go('home')
+            })
+        }
+      }  
 }())
